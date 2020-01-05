@@ -4,9 +4,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'dialogs.dart';
-import 'reconizer/recognizer.dart';
+import 'recognizer/math_recognizer.dart';
+import 'recognizer/recognizer.dart';
+import 'recognizer/test_data.dart';
 
-var recognizer = new DollarRecognizer();
+var recognizer = new DollarRecognizer(getTestGestures());
 List<Point> pointsToRecognize;
 
 class Draw extends StatefulWidget {
@@ -93,11 +95,12 @@ class _DrawState extends State<Draw> {
                     ..strokeWidth = strokeWidth));
             });
           },
-          onPanEnd: (details)async {
+          onPanEnd: (details) async {
             setState(() {
               points.add(null);
             });
-            Result result = await recognizer.recognize(pointsToRecognize, false);
+            Result result =
+                await recognizer.recognize(pointsToRecognize, false);
             final snackBar = SnackBar(
                 content: Text(
                     "Result : name : ${result.name}, score : ${result.score}, ms : ${result.ms}"));

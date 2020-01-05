@@ -1,4 +1,4 @@
-# dollar_gesture_recognizer
+# One dollar gesture recognizer in Dart
 
 A one dollar gesture recognizer in dart.
 It can be very easily used in flutter.
@@ -12,7 +12,7 @@ http://depts.washington.edu/acelab/proj/dollar/index.html.
 
 This recognizer : 
 - detects gestures that are done with a single uninterrupted gesture,
-- needs to be given a set of gestures he can detect to work,
+- needs to be given a set of gestures it can detect to work,
 - will always give an answer and returns the gesture detected to be the most similar to the gesture you analyze.
 The gesture detected is provided with a score indicating how similar it is.  
 - can be given your own gestures to detect.
@@ -73,3 +73,6 @@ Remove a gesture from the recognizer.
 ```
 recognizer.deleteUserGesture("my_gesture");
 ```
+
+## Test gestures :
+![Test gestures](http://depts.washington.edu/acelab/proj/dollar/unistrokes.gif)

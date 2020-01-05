@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 
 import 'dialogs.dart';
 
-var recognizer = new DollarRecognizer(getTestGestures());
+var recognizer = new DollarRecognizer.withGestures(getTestGestures());
 List<Point> pointsToRecognize;
 
 class Draw extends StatefulWidget {

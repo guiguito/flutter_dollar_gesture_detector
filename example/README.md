@@ -1,16 +1,24 @@
-# dollar_gesture_recognizer_dart
+# Flutter example of the dollar_gesture_recognizer_dart library
 
-A 1dollar gesture recognizer in dart
+This project demonstrates how to use the one dollar gesture recognizer library in Flutter.
 
-## Getting Started
+This example is initialized with a set of test gestures to detect.
+ ```
+ var recognizer = new DollarRecognizer.withGestures(getTestGestures());
+ ```
 
-This project is a starting point for a Flutter application.
+Here is the list of test gestures available :
+![Test gestures](http://depts.washington.edu/acelab/proj/dollar/unistrokes.gif)
 
-A few resources to get you started if this is your first Flutter project:
+When you launch it, you just need to draw on the white screen the gesture.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+A snackbar will display the gesture detected.
+ 
+You can clear the drawing screen click on the cross.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can draw a gesture and add it to the recognizer clicking on the floppy disk and providing a name to the gesture.
+
+Your gesture can then be detected with the others.
+
+
+

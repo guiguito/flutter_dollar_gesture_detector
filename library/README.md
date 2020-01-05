@@ -4,11 +4,9 @@ A one dollar gesture recognizer in dart. Can be used in flutter.
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+This project is a direct translation of the one dollar gesture recognizer that you can find here :
+http://depts.washington.edu/acelab/proj/dollar/index.html.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+You can find an example of use in [this example project.](https://github.com/guiguito/flutter_dollar_gesture_detector/example).
+
+

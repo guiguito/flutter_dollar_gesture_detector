@@ -1,12 +1,12 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:dollar_gesture_recognizer/dollar_gesture_recognizer.dart';
+import 'package:dollar_gesture_recognizer/gestures_examples.dart';
+import 'package:dollar_gesture_recognizer/math_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'dialogs.dart';
-import 'recognizer/math_recognizer.dart';
-import 'recognizer/recognizer.dart';
-import 'recognizer/test_data.dart';
 
 var recognizer = new DollarRecognizer(getTestGestures());
 List<Point> pointsToRecognize;

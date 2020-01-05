@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 enum DialogAction { yes, abort }
 
+///Handy class to display dialogs
 class Dialogs {
   static Future<DialogAction> yesAbortDialog(
     BuildContext context,

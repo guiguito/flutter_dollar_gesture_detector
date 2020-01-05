@@ -5,13 +5,13 @@ import 'dart:math' as math;
 //
 const NUMPOINTS = 64;
 const SQUARESIZE = 250.0;
-final double PHI = 0.5 * (-1.0 + math.sqrt(5.0)); // Golden Ratio
-final int INFINITY = double.maxFinite.toInt();
-const Point ORIGIN = const Point(0, 0);
-final double DIAGONAL = math.sqrt(SQUARESIZE * SQUARESIZE + SQUARESIZE * SQUARESIZE);
-final double HALFDIAGONAL = 0.5 * DIAGONAL;
-final double ANGLERANGE = deg2Rad(45.0);
-final double ANGLEPRECISION = deg2Rad(2.0);
+final double phi = 0.5 * (-1.0 + math.sqrt(5.0)); // Golden Ratio
+final int infinity = double.maxFinite.toInt();
+const Point origin = const Point(0, 0);
+final double diagonal = math.sqrt(SQUARESIZE * SQUARESIZE + SQUARESIZE * SQUARESIZE);
+final double halfdiagonal = 0.5 * diagonal;
+final double anglerange = deg2Rad(45.0);
+final double angleprecision = deg2Rad(2.0);
 
 class Point {
   final double x;
@@ -40,7 +40,7 @@ class Unistroke {
     var radians = indicativeAngle(this.points);
     this.points = rotateBy(this.points, -radians);
     this.points = scaleTo(this.points, SQUARESIZE);
-    this.points = translateTo(this.points, ORIGIN);
+    this.points = translateTo(this.points, origin);
     this.vector = vectorize(this.points);
   }
 }
@@ -152,22 +152,22 @@ double optimalCosineDistance(List<double> v1, List<double> v2) {
 
 double distanceAtBestAngle(
     List<Point> points, Unistroke T, double a, double b, threshold) {
-  double x1 = PHI * a + (1.0 - PHI) * b;
+  double x1 = phi * a + (1.0 - phi) * b;
   double f1 = distanceAtAngle(points, T, x1);
-  double x2 = (1.0 - PHI) * a + PHI * b;
+  double x2 = (1.0 - phi) * a + phi * b;
   double f2 = distanceAtAngle(points, T, x2);
   while ((b - a).abs() > threshold) {
     if (f1 < f2) {
       b = x2;
       x2 = x1;
       f2 = f1;
-      x1 = PHI * a + (1.0 - PHI) * b;
+      x1 = phi * a + (1.0 - phi) * b;
       f1 = distanceAtAngle(points, T, x1);
     } else {
       a = x1;
       x1 = x2;
       f1 = f2;
-      x2 = (1.0 - PHI) * a + PHI * b;
+      x2 = (1.0 - phi) * a + phi * b;
       f2 = distanceAtAngle(points, T, x2);
     }
   }
@@ -192,10 +192,10 @@ Point centroid(List<Point> points) {
 }
 
 Rectangle boundingBox(List<Point> points) {
-  double minX = INFINITY.toDouble();
-  double maxX = -INFINITY.toDouble();
-  double minY = INFINITY.toDouble();
-  double maxY = -INFINITY.toDouble();
+  double minX = infinity.toDouble();
+  double maxX = -infinity.toDouble();
+  double minY = infinity.toDouble();
+  double maxY = -infinity.toDouble();
   for (var i = 0; i < points.length; i++) {
     minX = math.min(minX, points[i].x);
     minY = math.min(minY, points[i].y);

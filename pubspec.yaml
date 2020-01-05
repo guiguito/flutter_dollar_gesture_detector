@@ -1,6 +1,6 @@
 name: dollar_gesture_recognizer
-description: A one dollar gesture recognizer in dart. Can be used in flutter.
-version: 0.0.1
+description: A one dollar gesture recognizer in dart which can be used in flutter.
+version: 0.0.2
 author: Guilhem Duché <guiguito1@hotmail.com>
 homepage: https://github.com/guiguito/flutter_dollar_gesture_detector
 

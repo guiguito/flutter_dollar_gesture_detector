@@ -2,9 +2,14 @@ import 'math_utils.dart';
 
 /// DollarRecognizer class
 class DollarRecognizer {
+
   List<Unistroke> unistrokes;
 
-  DollarRecognizer(List<Unistroke> unistrokes) {
+  DollarRecognizer() {
+    this.unistrokes  = new List<Unistroke>();
+  }
+
+  DollarRecognizer.withGestures(List<Unistroke> unistrokes) {
     this.unistrokes = new List<Unistroke>();
     addGestures(unistrokes);
   }
@@ -15,7 +20,7 @@ class DollarRecognizer {
     Unistroke candidate = new Unistroke("", points);
 
     int u = -1;
-    double b = INFINITY.toDouble();
+    double b = infinity.toDouble();
     for (int i = 0; i < unistrokes.length; i++) // for each unistroke template
     {
       double d;
@@ -23,8 +28,8 @@ class DollarRecognizer {
         d = optimalCosineDistance(
             unistrokes[i].vector, candidate.vector); // Protractor
       else
-        d = distanceAtBestAngle(candidate.points, unistrokes[i], -ANGLERANGE,
-            ANGLERANGE, ANGLEPRECISION); // Golden Section Search (original $1)
+        d = distanceAtBestAngle(candidate.points, unistrokes[i], -anglerange,
+            anglerange, angleprecision); // Golden Section Search (original $1)
       if (d < b) {
         b = d; // best (least) distance
         u = i; // unistroke index
@@ -34,7 +39,7 @@ class DollarRecognizer {
     return (u == -1)
         ? new Result("No match.", 0.0, t1 - t0)
         : new Result(unistrokes[u].name,
-            useProtractor ? (1.0 - b) : (1.0 - b / HALFDIAGONAL), t1 - t0);
+            useProtractor ? (1.0 - b) : (1.0 - b / halfdiagonal), t1 - t0);
   }
 
   ///Add a list of gestures to the recognizer.
